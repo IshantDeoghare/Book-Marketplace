@@ -19,7 +19,7 @@ import {
 import SearchIcon from "@mui/icons-material/Search";
 import BookCard from "@/components/BookCard";
 import { useDebounce } from 'use-debounce'; // A helpful utility for search inputs
-
+import apiClient from '@/lib/api';
 interface Book {
   _id: string;
   title: string;
@@ -42,7 +42,7 @@ const fetchBooks = async ({ queryKey }: { queryKey: (string | number)[] }) => {
   if (keyword) params.keyword = keyword;
   if (category && category !== "All") params.category = category;
 
-  const { data } = await axios.get("http://localhost:5001/api/books", { params });
+  const { data } = await apiClient.get("/books", { params });
   return data.books as Book[];
 };
 

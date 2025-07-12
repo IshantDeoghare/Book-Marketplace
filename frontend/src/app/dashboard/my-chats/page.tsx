@@ -26,7 +26,7 @@ import {
 } from '@mui/material';
 import ChatIcon from '@mui/icons-material/Forum';
 import BookIcon from '@mui/icons-material/AutoStories';
-
+import apiClient from '@/lib/api';
 interface Participant {
   _id: string;
   name: string;
@@ -47,7 +47,7 @@ interface Chat {
 }
 
 const fetchUserChats = async (token: string): Promise<Chat[]> => {
-  const { data } = await axios.get('http://localhost:5001/api/chats', {
+  const { data } = await apiClient.get('/chats', {
     headers: { Authorization: `Bearer ${token}` },
   });
   return data;

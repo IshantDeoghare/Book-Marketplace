@@ -1,10 +1,9 @@
 import axios from 'axios';
 
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
+
 const apiClient = axios.create({
-  baseURL: 'http://localhost:5001/api', // Your backend API base URL
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  baseURL: API_BASE_URL,
 });
 
 // Interceptor to add the auth token to every request

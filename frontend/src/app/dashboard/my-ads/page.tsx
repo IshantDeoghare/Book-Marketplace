@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useAuth } from '@/context/AuthContext';
 import { Button, Box, Typography, Card, CardContent, CardActions, CardMedia, Grid, CircularProgress, Alert } from '@mui/material';
 import { useRouter } from 'next/navigation';
-
+import apiClient from '@/lib/api';
 interface Book {
   _id: string;
   title: string;
@@ -14,14 +14,14 @@ interface Book {
 }
 
 const fetchMyBooks = async (token: string): Promise<Book[]> => {
-  const { data } = await axios.get('http://localhost:5001/api/books/mybooks', {
+  const { data } = await apiClient.get('/books/mybooks', {
     headers: { Authorization: `Bearer ${token}` },
   });
   return data;
 };
 
 const deleteBook = async ({ bookId, token }: { bookId: string; token:string; }) => {
-    await axios.delete(`http://localhost:5001/api/books/${bookId}`, {
+    await apiClient.delete(`/books/${bookId}`, {
         headers: { Authorization: `Bearer ${token}` }
     });
 };

@@ -8,7 +8,7 @@ import {
 } from '@mui/material';
 import BookCard from '@/components/BookCard';
 import SearchBar from '@/components/SearchBar'; // We'll create a reusable SearchBar
-
+import apiClient from '@/lib/api';
 interface Book {
   _id: string;
   title: string;
@@ -21,7 +21,7 @@ interface Book {
 // API function now uses the correct route and query parameter 'q'
 const fetchSearchResults = async (query: string): Promise<Book[]> => {
   if (!query) return []; // Don't make an API call if the query is empty
-  const { data } = await axios.get(`http://localhost:5001/api/books/search`, {
+  const { data } = await apiClient.get(`/books/search`, {
     params: { q: query }
   });
   return data.books as Book[];

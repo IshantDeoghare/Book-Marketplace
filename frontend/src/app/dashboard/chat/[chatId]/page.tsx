@@ -40,6 +40,7 @@ import {
 } from '@mui/icons-material';
 import Image from 'next/image';
 
+import apiClient from '@/lib/api';
 // --- Types ---
 interface Sender { _id: string; name: string; firebaseUid: string; }
 interface Message { _id: string; sender: Sender; text: string; createdAt: string; status?: 'sending' | 'sent' | 'delivered' | 'read'; }
@@ -50,13 +51,13 @@ interface TypingUser { userId: string; name: string; timestamp: number; }
 
 // --- API Calls ---
 const fetchMessages = async (chatId: string, token: string): Promise<Message[]> => {
-  const { data } = await axios.get(`http://localhost:5001/api/chats/${chatId}/messages`, {
+  const { data } = await apiClient.get(`/chats/${chatId}/messages`, {
     headers: { Authorization: `Bearer ${token}` }
   });
   return data;
 };
 const fetchChatDetails = async (chatId: string, token: string): Promise<ChatDetails> => {
-  const { data } = await axios.get(`http://localhost:5001/api/chats/${chatId}`, {
+  const { data } = await apiClient.get(`/chats/${chatId}`, {
     headers: { Authorization: `Bearer ${token}` }
   });
   return data;

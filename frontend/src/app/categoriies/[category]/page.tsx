@@ -19,7 +19,7 @@ import {
 } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import BookCard from "@/components/BookCard";
-
+import apiClient from '@/lib/api';
 export default function CategoryBooksPage() {
   const theme = useTheme();
   const { category } = useParams<{ category: string }>();
@@ -31,7 +31,7 @@ export default function CategoryBooksPage() {
   const { data: books, isLoading, isError } = useQuery({
     queryKey: ["category-books", category],
     queryFn: async () => {
-      const { data } = await axios.get("http://localhost:5001/api/books", {
+      const { data } = await apiClient.get("/books", {
         params: { category: category },
       });
       return data.books;

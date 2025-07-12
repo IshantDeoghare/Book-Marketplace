@@ -14,11 +14,11 @@ import ScienceIcon from '@mui/icons-material/Science';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import BookCard from '@/components/BookCard';
-
+import apiClient from '@/lib/api';
 interface Book { _id: string; title: string; author: string; askingPrice: number; imageUrls: string[]; }
 
 const fetchBooks = async () => {
-  const { data } = await axios.get('http://localhost:5001/api/books?pageSize=8');
+  const { data } = await apiClient.get('/books?pageSize=8');
   return data.books as Book[];
 };
 

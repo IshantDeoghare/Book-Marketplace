@@ -29,10 +29,23 @@ const io = new Server(server, {
   },
 });
 
+const whitelist = ['http://localhost:3000'];
+if (process.env.FRONTEND_URL) {
+  // FRONTEND_URL will be your Vercel URL, e.g., https://my-book-app.vercel.app
+  whitelist.push(process.env.FRONTEND_URL);
+}
+
 const corsOptions = {
-  origin: 'http://localhost:3000',
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin || whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, Authorization",
 };
 app.use(cors(corsOptions));

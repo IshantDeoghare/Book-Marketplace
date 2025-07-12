@@ -50,7 +50,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { useState, useEffect } from 'react';
-
+import apiClient from '@/lib/api';
 interface User { 
   _id: string; 
   name: string; 
@@ -75,7 +75,7 @@ interface FullBook {
 }
 
 const fetchBookById = async (id: string): Promise<FullBook> => {
-  const { data } = await axios.get(`http://localhost:5001/api/books/${id}`);
+  const { data } = await apiClient.get(`/books/${id}`);
   return data;
 };
 
@@ -107,8 +107,8 @@ export default function BookDetailPage() {
     mutationFn: async () => {
       if (!idToken) throw new Error('You must be logged in.');
       if (!book) throw new Error('Book data is not available.');
-      const { data } = await axios.post(
-        'http://localhost:5001/api/chats', 
+      const { data } = await apiClient.post(
+        '/chats', 
         { bookId: book._id }, 
         { headers: { Authorization: `Bearer ${idToken}` } }
       );

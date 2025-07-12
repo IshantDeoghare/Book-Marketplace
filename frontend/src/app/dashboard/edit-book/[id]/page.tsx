@@ -50,6 +50,7 @@ import {
   Description as DescriptionIcon,
   Warning as WarningIcon
 } from '@mui/icons-material';
+import apiClient from '@/lib/api';
 
 // Type definitions
 interface FullBook {
@@ -68,7 +69,7 @@ interface FullBook {
 
 // API functions
 const fetchBookToEdit = async (id: string): Promise<FullBook> => {
-  const { data } = await axios.get(`http://localhost:5001/api/books/${id}`);
+  const { data } = await apiClient.get(`/books/${id}`);
   return data;
 };
 
@@ -79,8 +80,8 @@ type UpdateBookPayload = {
 };
 
 const updateBookListing = async ({ bookId, bookData, token }: UpdateBookPayload) => {
-  const { data } = await axios.put(
-    `http://localhost:5001/api/books/${bookId}`,
+  const { data } = await apiClient.put(
+    `/books/${bookId}`,
     bookData,
     { headers: { Authorization: `Bearer ${token}` } }
   );

@@ -16,10 +16,11 @@ import {
 import { CloudUpload, Delete } from '@mui/icons-material';
 import { bookSchema, BookFormData } from '@/schemas/bookSchema';
 import { useAuth } from '@/context/AuthContext';
+import apiClient from '@/lib/api';
 
 const getUploadUrl = async (fileType: string, token: string) =>
-  (await axios.post(
-    'http://localhost:5001/api/books/upload-url',
+  (await apiClient.post(
+    '/books/upload-url',
     { fileType },
     { headers: { Authorization: `Bearer ${token}` } }
   )).data;
@@ -31,7 +32,7 @@ const createListing = async (
   data: Omit<BookFormData, 'images'> & { imageUrls: string[] },
   token: string,
 ) =>
-  (await axios.post('http://localhost:5001/api/books', data, {
+  (await apiClient.post('/books', data, {
     headers: { Authorization: `Bearer ${token}` },
   })).data;
 

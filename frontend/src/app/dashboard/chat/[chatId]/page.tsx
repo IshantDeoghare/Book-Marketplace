@@ -17,7 +17,6 @@ import {
   Toolbar,
   Avatar,
   useTheme,
-  useMediaQuery,
   alpha,
   Fade,
   Zoom,
@@ -184,7 +183,7 @@ export default function ChatScreen() {
   const chatId = params.chatId as string;
   const { user, idToken } = useAuth();
   const queryClient = useQueryClient();
-  const theme = useTheme();
+ 
   
 
   const [newMessage, setNewMessage] = useState('');

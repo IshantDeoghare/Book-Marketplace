@@ -32,7 +32,6 @@ import {
   Tooltip,
   Divider,
   InputAdornment,
-  useTheme,
   alpha,
   LinearProgress
 } from '@mui/material';

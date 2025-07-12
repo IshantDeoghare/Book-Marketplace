@@ -10,7 +10,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import {
   Container, Paper, Typography, Box, Grid, TextField, MenuItem,
-  FormControl, InputLabel, Select, FormHelperText, Button, Chip, Alert,
+  FormControl, InputLabel, Select, FormHelperText, Button, Alert,
   CircularProgress, IconButton, useTheme, alpha
 } from '@mui/material';
 import { CloudUpload, Delete } from '@mui/icons-material';
@@ -144,7 +144,7 @@ export default function SellABookPage() {
         await uploadToS3(uploadUrl, file);
         urls.push(`https://${process.env.NEXT_PUBLIC_S3_BUCKET_NAME}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${key}`);
       }
-      const { images, ...data } = form;
+      const {  ...data } = form;
       return createListing({ ...data, imageUrls: urls }, idToken);
     },
     onSuccess: (book) => router.push(`/books/${book._id}`),

@@ -94,7 +94,7 @@ export default function EditBookPage() {
   const params = useParams();
   const bookId = params.id as string;
   const queryClient = useQueryClient();
-  const theme = useTheme();
+  
   
   const [mounted, setMounted] = useState(false);
   const [hasChanges, setHasChanges] = useState(false);
@@ -131,7 +131,7 @@ export default function EditBookPage() {
   // When the book data loads, populate the form
   useEffect(() => {
     if (bookData) {
-      const { imageUrls, ...formData } = bookData;
+      const { ...formData } = bookData;
       reset(formData);
     }
   }, [bookData, reset]);
@@ -569,7 +569,7 @@ export default function EditBookPage() {
                                       Great Deal!
                                     </Typography>
                                     <Typography variant="body2">
-                                      You're offering a <strong>{Math.round((priceDiff / Number(watchedValues.mrp)) * 100)}% discount</strong> from the original price.
+                                      You&apos;re offering a <strong>{Math.round((priceDiff / Number(watchedValues.mrp)) * 100)}% discount</strong> from the original price.
                                       Buyers save ₹{priceDiff.toLocaleString('en-IN')}!
                                     </Typography>
                                   </Box>

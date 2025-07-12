@@ -47,7 +47,7 @@ export default function SearchPage() {
       {/* Results Header */}
       {query && (
          <Typography variant="h4" sx={{ fontWeight: 700, mb: 3 }}>
-          Results for "{query}"
+          Results for &quot;{query}&quot;
         </Typography>
       )}
       {!query && (
@@ -71,7 +71,7 @@ export default function SearchPage() {
 
       {!isLoading && !isError && books && books.length === 0 && query && (
         <Alert severity="info" sx={{ my: 4 }}>
-          No books found for "{query}". Please try a different search term.
+          No books found for &quot;{query}&quot;. Please try a different search term.
         </Alert>
       )}
 

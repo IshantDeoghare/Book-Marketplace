@@ -66,11 +66,11 @@ export default function ContactPage() {
             </Typography>
           </Box>
           <Typography variant="subtitle1" color="text.secondary" sx={{ mb: 3 }}>
-            Have a question, suggestion, or need help? Reach out and we'll get back to you soon.
+            Have a question, suggestion, or need help? Reach out and we&apos;ll get back to you soon.
           </Typography>
           {submitted ? (
             <Alert severity="success" sx={{ my: 4 }}>
-              Thank you for contacting us! We'll respond as soon as possible.
+              Thank you for contacting us! We&apos;ll respond as soon as possible.
             </Alert>
           ) : (
             <Box component="form" onSubmit={handleSubmit} noValidate>

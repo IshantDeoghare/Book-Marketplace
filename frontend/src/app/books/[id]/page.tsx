@@ -15,8 +15,7 @@ import {
   Divider, 
   Avatar, 
   Chip,
-  useTheme,
-  useMediaQuery,
+  useTheme, 
   alpha,
   IconButton,
   Tooltip,
@@ -94,7 +93,7 @@ export default function BookDetailPage() {
     setMounted(true);
   }, []);
 
-  const { data: book, isLoading, isError, error } = useQuery<FullBook, Error>({
+  const { data: book, isLoading, isError} = useQuery<FullBook, Error>({
     queryKey: ['book', id],
     queryFn: () => fetchBookById(id),
     enabled: !!id,

@@ -72,7 +72,7 @@ const MessageBubble = ({
   isMe: boolean;
   otherUser: Participant | undefined;
 }) => {
-  const theme = useTheme();
+  
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => { setMounted(true); }, []);
@@ -185,7 +185,7 @@ export default function ChatScreen() {
   const { user, idToken } = useAuth();
   const queryClient = useQueryClient();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
+  
 
   const [newMessage, setNewMessage] = useState('');
   const [typingUsers, setTypingUsers] = useState<TypingUser[]>([]);

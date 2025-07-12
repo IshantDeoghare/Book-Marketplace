@@ -77,6 +77,7 @@ export default function RegisterPage() {
       router.push("/");
     } catch (err: any) {
       setError("Failed to sign up with Google. Please try again.");
+      console.log(err);
     } finally {
       setLoading(false);
     }

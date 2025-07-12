@@ -36,7 +36,7 @@ const CATEGORIES = [
 // --- THIS IS A KEY FIX ---
 // The API function now correctly uses the 'keyword' parameter name.
 const fetchBooks = async ({ queryKey }: { queryKey: (string | number)[] }) => {
-  const [_key, keyword, category] = queryKey; // Destructure the query key
+  const [keyword, category] = queryKey; // Destructure the query key
   
   const params: Record<string, any> = {};
   if (keyword) params.keyword = keyword;

@@ -5,8 +5,8 @@ import { useQuery } from '@tanstack/react-query';
 
 import Link from 'next/link';
 import {
-  Box, Container, Typography, Button, Grid, Chip, Paper,
-  CircularProgress, Alert, useTheme, alpha, IconButton
+  Box, Container, Typography, Button, Grid, Chip, 
+  CircularProgress, Alert, useTheme, alpha
 } from '@mui/material';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import CategoryIcon from '@mui/icons-material/Category';

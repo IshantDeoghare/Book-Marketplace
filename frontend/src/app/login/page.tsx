@@ -70,8 +70,9 @@ export default function LoginPage() {
     try {
       await signInWithPopup(auth, provider);
       router.push('/');
-    } catch (err: any) {
-      setError('Failed to sign in with Google. Please try again.');
+    } catch (err) {
+      setError('Failed to sign in with Google.Please try again.');
+      console.log(err);
     } finally {
       setLoading(false);
     }
@@ -86,6 +87,7 @@ export default function LoginPage() {
       router.push('/');
     } catch (err: any) {
       setError("Invalid email or password. Please check your credentials and try again.");
+      console.log(err);
     } finally {
       setLoading(false);
     }
@@ -528,7 +530,7 @@ export default function LoginPage() {
                   {/* Sign Up Link */}
                   <Box sx={{ mt: 4, textAlign: 'center' }}>
                     <Typography variant="body2" sx={{ color: 'text.secondary' }}>
-                      Don't have an account?{' '}
+                      Don&apos;t have an account?{' '}
                       <Link href="/register" passHref>
                         <MuiLink
                           sx={{

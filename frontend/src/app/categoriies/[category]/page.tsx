@@ -2,26 +2,24 @@
 //E:\pro-book-marketplace\frontend\src\app\categoriies\[category]\page.tsx
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+
 import Link from "next/link";
 import {
   Box,
   Container,
   Typography,
   Grid,
-  Chip,
-  Paper,
+  
   Button,
   CircularProgress,
   Alert,
-  useTheme,
-  alpha,
+  
 } from "@mui/material";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import BookCard from "@/components/BookCard";
 import apiClient from '@/lib/api';
 export default function CategoryBooksPage() {
-  const theme = useTheme();
+  
   const { category } = useParams<{ category: string }>();
   const catLabel = category
     ? category.charAt(0).toUpperCase() + category.slice(1)

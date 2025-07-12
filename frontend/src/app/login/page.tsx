@@ -34,7 +34,6 @@ import {
   Lock as LockIcon,
   BookmarkBorder as BookIcon,
   ArrowForward as ArrowForwardIcon,
-  Person as PersonIcon,
   Security as SecurityIcon,
   Speed as SpeedIcon
 } from '@mui/icons-material';

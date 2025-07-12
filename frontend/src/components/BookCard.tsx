@@ -21,7 +21,7 @@ import {
   Favorite as FavoriteIcon,
   FavoriteBorder as FavoriteBorderIcon,
   Visibility as VisibilityIcon,
-  LocalOffer as OfferIcon,
+  
 } from "@mui/icons-material";
 
 interface Book {

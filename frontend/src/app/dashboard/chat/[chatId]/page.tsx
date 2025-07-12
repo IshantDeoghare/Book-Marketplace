@@ -3,7 +3,7 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
+
 import { useAuth } from '@/context/AuthContext';
 import io, { Socket } from 'socket.io-client';
 import {
@@ -26,7 +26,6 @@ import {
   Tooltip,
   Card,
   CardContent,
-  Divider,
   Container
 } from '@mui/material';
 import {

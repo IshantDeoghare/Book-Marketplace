@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery, useMutation } from '@tanstack/react-query';
-import axios from 'axios';
+
 import { useParams, useRouter } from 'next/navigation';
 import { 
   Container, 
@@ -24,8 +24,6 @@ import {
   Link as MuiLink,
   Card,
   CardContent,
-  Fade,
-  Slide,
   Badge,
   Stack
 } from '@mui/material';
@@ -85,7 +83,6 @@ export default function BookDetailPage() {
   const { user, idToken } = useAuth();
   const router = useRouter();
   const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('md'));
   
   // State management
   const [currentImageIndex, setCurrentImageIndex] = useState(0);

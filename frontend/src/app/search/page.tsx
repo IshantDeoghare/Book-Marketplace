@@ -2,12 +2,12 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+
 import {
   Box, Container, Typography, Grid, CircularProgress, Alert
 } from '@mui/material';
 import BookCard from '@/components/BookCard';
-import SearchBar from '@/components/SearchBar'; // We'll create a reusable SearchBar
+ // We'll create a reusable SearchBar
 import apiClient from '@/lib/api';
 interface Book {
   _id: string;

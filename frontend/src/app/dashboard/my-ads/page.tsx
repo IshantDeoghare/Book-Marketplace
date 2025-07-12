@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import axios from 'axios';
+
 import { useAuth } from '@/context/AuthContext';
 import { Button, Box, Typography, Card, CardContent, CardActions, CardMedia, Grid, CircularProgress, Alert } from '@mui/material';
 import { useRouter } from 'next/navigation';

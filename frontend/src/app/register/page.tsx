@@ -23,7 +23,7 @@ import {
   alpha,
   Fade,
   Slide,
-  CircularProgress,
+
   Link as MuiLink,
   Checkbox,
   FormControlLabel
@@ -35,7 +35,7 @@ import {
   Email as EmailIcon,
   Lock as LockIcon,
   BookmarkBorder as BookIcon,
-  ArrowForward as ArrowForwardIcon,
+ 
   Person as PersonIcon,
   Security as SecurityIcon,
   Speed as SpeedIcon

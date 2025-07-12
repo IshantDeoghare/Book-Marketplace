@@ -1,8 +1,8 @@
 "use client";
 
 import Link from 'next/link';
-import { Box, Container, Grid, Typography, Link as MuiLink, TextField, Button, IconButton, Divider } from '@mui/material';
-import { Facebook, Twitter, Instagram, LinkedIn, GitHub } from '@mui/icons-material';
+import { Box, Container, Grid, Typography, Link as MuiLink, IconButton, Divider } from '@mui/material';
+import { Instagram, LinkedIn, GitHub } from '@mui/icons-material';
 import BookIcon from '@mui/icons-material/MenuBook';
 
 // A helper component for consistent link styling

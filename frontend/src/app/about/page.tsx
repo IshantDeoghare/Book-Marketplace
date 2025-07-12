@@ -2,14 +2,9 @@
 
 "use client";
 
-import { Box, Container, Typography, Grid, Paper, Chip, useTheme, alpha } from "@mui/material";
+import { Box, Container, Typography, Paper,  useTheme, alpha } from "@mui/material";
 import BookIcon from "@mui/icons-material/AutoStories";
-import CodeIcon from "@mui/icons-material/Code";
-import SchoolIcon from "@mui/icons-material/School";
-import EmojiObjectsIcon from "@mui/icons-material/EmojiObjects";
-import EmailIcon from "@mui/icons-material/Email";
-import PhoneIcon from "@mui/icons-material/Phone";
-import Link from "next/link";
+
 
 export default function AboutPage() {
   const theme = useTheme();

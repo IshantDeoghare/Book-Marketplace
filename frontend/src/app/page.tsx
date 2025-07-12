@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+
 import Link from 'next/link';
 import {
   Box, Container, Typography, Button, Grid, Chip, Paper,

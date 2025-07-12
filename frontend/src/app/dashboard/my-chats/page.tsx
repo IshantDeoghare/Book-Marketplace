@@ -3,7 +3,7 @@
 "use client";
 
 import { useQuery } from '@tanstack/react-query';
-import axios from 'axios';
+
 import { useAuth } from '@/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import React from 'react';

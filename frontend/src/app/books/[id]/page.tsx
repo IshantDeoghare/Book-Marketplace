@@ -266,7 +266,7 @@ export default function BookDetailPage() {
 
           <Grid container spacing={4}>
             {/* Main Content */}
-            <Grid item xs={12} lg={8}>
+            <Grid  xs={12} lg={8}>
               {/* Image Gallery - Fixed Display Issues */}
               <Paper 
                 elevation={0}
@@ -459,7 +459,7 @@ export default function BookDetailPage() {
                     { icon: <CategoryIcon />, label: 'Category', value: book.category },
                     { icon: <LocationIcon />, label: 'Location', value: book.location }
                   ].map((item, index) => (
-                    <Grid item xs={12} sm={6} key={index}>
+                    <Grid  xs={12} sm={6} key={index}>
                       <Box 
                         sx={{ 
                           display: 'flex', 
@@ -544,7 +544,7 @@ export default function BookDetailPage() {
             </Grid>
             
             {/* Sticky Sidebar */}
-            <Grid item xs={12} lg={4}>
+            <Grid  xs={12} lg={4}>
               <Box 
                 sx={{ 
                   position: 'sticky', 

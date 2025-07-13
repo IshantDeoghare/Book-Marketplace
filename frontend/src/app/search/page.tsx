@@ -78,7 +78,7 @@ export default function SearchPage() {
       {/* Results Grid */}
       <Grid container spacing={4}>
         {books?.map(book => (
-          <Grid item key={book._id} xs={12} sm={6} md={4} lg={3}>
+          <Grid  key={book._id} xs={12} sm={6} md={4} lg={3}>
             <BookCard book={book} />
           </Grid>
         ))}

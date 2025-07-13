@@ -36,8 +36,8 @@ const CATEGORIES = [
 // --- THIS IS A KEY FIX ---
 // The API function now correctly uses the 'keyword' parameter name.
 const fetchBooks = async ({ queryKey }: { queryKey: (string | number)[] }) => {
-  const [ keyword, category] = queryKey;
-  
+  const [ _key,keyword, category] = queryKey;
+  console.log(_key);
   // Define a more specific type for the params object
   const params: { keyword?: string; category?: string } = {};
 
@@ -150,7 +150,7 @@ export default function BrowsePage() {
             )}
             <Grid container spacing={4}>
                 {books?.map((book: Book) => (
-                  <Grid item key={book._id} xs={12} sm={6} md={4} lg={3}>
+                  <Grid  key={book._id} xs={12} sm={6} md={4} lg={3}>
                     <BookCard book={book} />
                   </Grid>
                 ))}

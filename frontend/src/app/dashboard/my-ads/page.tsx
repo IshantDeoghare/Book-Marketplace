@@ -65,7 +65,7 @@ export default function MyAdsScreen() {
         // Parentheses wrap the entire Grid component
         <Grid container spacing={3}>
           {myBooks.map(book => (
-            <Grid item xs={12} key={book._id}>
+            <Grid  xs={12} key={book._id}>
               <Card sx={{ display: 'flex' }}>
                 <CardMedia
                   component="img"

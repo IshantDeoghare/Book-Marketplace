@@ -326,7 +326,7 @@ export default function EditBookPage() {
                     </Typography>
                     
                     <Grid container spacing={3}>
-                      <Grid item xs={12} md={6}>
+                      <Grid  xs={12} md={6}>
                         <TextField
                           {...register('title')}
                           label="Book Title"
@@ -360,7 +360,7 @@ export default function EditBookPage() {
                         />
                       </Grid>
 
-                      <Grid item xs={12} md={6}>
+                      <Grid  xs={12} md={6}>
                         <TextField
                           {...register('author')}
                           label="Author"
@@ -387,7 +387,7 @@ export default function EditBookPage() {
                         />
                       </Grid>
 
-                      <Grid item xs={12} md={6}>
+                      <Grid  xs={12} md={6}>
                         <TextField
                           {...register('category')}
                           label="Category"
@@ -422,7 +422,7 @@ export default function EditBookPage() {
                         />
                       </Grid>
 
-                      <Grid item xs={12} md={6}>
+                      <Grid  xs={12} md={6}>
                         <TextField
                           {...register('location')}
                           label="Location"
@@ -479,7 +479,7 @@ export default function EditBookPage() {
                     </Typography>
                     
                     <Grid container spacing={3}>
-                      <Grid item xs={12} md={6}>
+                      <Grid  xs={12} md={6}>
                         <TextField
                           {...register('mrp')}
                           label="Original MRP"
@@ -514,7 +514,7 @@ export default function EditBookPage() {
                         />
                       </Grid>
 
-                      <Grid item xs={12} md={6}>
+                      <Grid  xs={12} md={6}>
                         <TextField
                           {...register('askingPrice')}
                           label="Your Asking Price"
@@ -551,7 +551,7 @@ export default function EditBookPage() {
 
                       {/* Price Calculator */}
                       {priceDiff > 0 && (
-                        <Grid item xs={12}>
+                        <Grid  xs={12}>
                           <Fade in={true}>
                             <Card
                               sx={{
@@ -601,7 +601,7 @@ export default function EditBookPage() {
                     </Typography>
                     
                     <Grid container spacing={3}>
-                      <Grid item xs={12} md={6}>
+                      <Grid  xs={12} md={6}>
                         <FormControl 
                           fullWidth 
                           required 
@@ -660,7 +660,7 @@ export default function EditBookPage() {
                         </FormControl>
                       </Grid>
 
-                      <Grid item xs={12} md={6}>
+                      <Grid  xs={12} md={6}>
                         <FormControl 
                           fullWidth 
                           required 

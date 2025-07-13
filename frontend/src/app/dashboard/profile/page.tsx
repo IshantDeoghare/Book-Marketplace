@@ -141,7 +141,7 @@ export default function ProfilePage() {
           <Divider sx={{ my: 3 }} />
 
           <Grid container spacing={2} justifyContent="center">
-            <Grid item xs={12} sm={6}>
+            <Grid  xs={12} sm={6}>
               <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1 }}>
                 <CalendarTodayIcon color="action" />
                 <Typography variant="body2" color="text.secondary">
@@ -151,7 +151,7 @@ export default function ProfilePage() {
                 </Typography>
               </Box>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid  xs={12} sm={6}>
               <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1 }}>
                 <BookIcon color="action" />
                 <Typography variant="body2" color="text.secondary">

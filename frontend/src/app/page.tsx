@@ -99,7 +99,7 @@ export default function HomePage() {
         <Typography variant="h4" sx={{ fontWeight: 700, mb: 4 }}>Browse by Genre</Typography>
         <Grid container spacing={3} justifyContent="center">
           {CATEGORIES.map(cat => (
-            <Grid item key={cat.name}>
+            <Grid  key={cat.name}>
               <Chip
                 icon={cat.icon}
                 label={cat.name}
@@ -128,7 +128,7 @@ export default function HomePage() {
         {books && (
           <Grid container spacing={4}>
             {books.map(book => (
-              <Grid item key={book._id} xs={12} sm={6} md={4} lg={3}>
+              <Grid key={book._id} xs={12} sm={6} md={4} lg={3}>
                 <BookCard book={book} />
               </Grid>
             ))}

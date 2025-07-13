@@ -39,7 +39,7 @@ export default function Footer() {
       <Container maxWidth="lg">
         <Grid container spacing={5}>
           {/* Column 1: Brand & Newsletter */}
-          <Grid item xs={12} md={5}>
+          <Grid  xs={12} md={5}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                 <BookIcon sx={{ mr: 1.5, color: 'primary.main', fontSize: '2rem' }} />
                 <Typography variant="h5" component="div" sx={{ fontFamily: 'var(--font-playfair-display)', fontWeight: 'bold' }}>
@@ -54,19 +54,19 @@ export default function Footer() {
           </Grid>
 
           {/* Spacer Column */}
-          <Grid item xs={false} md={1} />
+          <Grid  xs={false} md={1} />
 
           {/* Column 2, 3, 4: Link Columns */}
-          <Grid item xs={12} md={6}>
+          <Grid  xs={12} md={6}>
             <Grid container spacing={5}>
-              <Grid item xs={6} sm={4}>
+              <Grid  xs={6} sm={4}>
                 <Typography variant="overline" fontWeight="bold" color="text.primary">Marketplace</Typography>
                 <FooterLink href="/browse">Browse Books</FooterLink>
                 <FooterLink href="/categoriies">Categories</FooterLink>
                 <FooterLink href="/sell-a-book">Sell Your Book</FooterLink>
               </Grid>
 
-              <Grid item xs={6} sm={4}>
+              <Grid  xs={6} sm={4}>
                 <Typography variant="overline" fontWeight="bold" color="text.primary">Company</Typography>
                 <FooterLink href="/about">About Us</FooterLink>
                 <FooterLink href="/contact">Contact</FooterLink>

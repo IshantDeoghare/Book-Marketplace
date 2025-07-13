@@ -1,22 +1,24 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { onAuthStateChanged, User as FirebaseUser, getIdToken, setPersistence, browserSessionPersistence, browserLocalPersistence } from 'firebase/auth';
+import { onAuthStateChanged, User as FirebaseUser, getIdToken, signOut } from 'firebase/auth'; // <-- 1. Import signOut
 import { auth } from '@/lib/firebase';
 import { CircularProgress, Box } from '@mui/material';
 
+// --- THIS IS THE FIX (Part 1) ---
 interface AuthContextType {
   user: FirebaseUser | null;
   idToken: string | null;
   loading: boolean;
-  setAuthPersistence: (remember: boolean) => Promise<void>;
+  signOut: () => Promise<void>; // <-- 2. Add signOut to the type
 }
+// --- END OF FIX ---
 
 const AuthContext = createContext<AuthContextType>({
   user: null,
   idToken: null,
   loading: true,
-  setAuthPersistence: async () => {},
+  signOut: async () => {}, // Provide a default empty function
 });
 
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
@@ -26,6 +28,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+      setLoading(true);
       if (currentUser) {
         setUser(currentUser);
         const token = await getIdToken(currentUser);
@@ -38,10 +41,18 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     });
     return () => unsubscribe();
   }, []);
-  
-  const setAuthPersistence = async (remember: boolean) => {
-    await setPersistence(auth, remember ? browserLocalPersistence : browserSessionPersistence);
+
+  // --- THIS IS THE FIX (Part 2) ---
+  // 3. Create the reusable signOut function
+  const handleSignOut = async () => {
+    try {
+      await signOut(auth);
+      // The onAuthStateChanged listener will automatically handle setting user to null.
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
   };
+  // --- END OF FIX ---
 
   if (loading) {
     return (
@@ -52,7 +63,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }
 
   return (
-    <AuthContext.Provider value={{ user, idToken, loading, setAuthPersistence }}>
+    // 4. Add the new function to the provider's value
+    <AuthContext.Provider value={{ user, idToken, loading, signOut: handleSignOut }}>
       {children}
     </AuthContext.Provider>
   );

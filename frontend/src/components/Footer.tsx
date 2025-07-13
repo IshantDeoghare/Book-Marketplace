@@ -1,9 +1,10 @@
 "use client";
 
 import Link from 'next/link';
-import { Box, Container, Grid, Typography, Link as MuiLink, IconButton, Divider } from '@mui/material';
+import { Box, Container, Typography, Link as MuiLink, IconButton, Divider } from '@mui/material';
 import { Instagram, LinkedIn, GitHub } from '@mui/icons-material';
 import BookIcon from '@mui/icons-material/MenuBook';
+import { GridLegacy as Grid } from '@mui/material';
 
 // A helper component for consistent link styling
 const FooterLink = ({ href, children }: { href: string, children: React.ReactNode }) => (
@@ -39,7 +40,7 @@ export default function Footer() {
       <Container maxWidth="lg">
         <Grid container spacing={5}>
           {/* Column 1: Brand & Newsletter */}
-          <Grid  xs={12} md={5}>
+          <Grid item xs={12} md={5}>
             <Box sx={{ display: 'flex', alignItems: 'center', mb: 2 }}>
                 <BookIcon sx={{ mr: 1.5, color: 'primary.main', fontSize: '2rem' }} />
                 <Typography variant="h5" component="div" sx={{ fontFamily: 'var(--font-playfair-display)', fontWeight: 'bold' }}>
@@ -54,19 +55,19 @@ export default function Footer() {
           </Grid>
 
           {/* Spacer Column */}
-          <Grid  xs={false} md={1} />
+          <Grid item xs={false} md={1} />
 
           {/* Column 2, 3, 4: Link Columns */}
-          <Grid  xs={12} md={6}>
+          <Grid item xs={12} md={6}>
             <Grid container spacing={5}>
-              <Grid  xs={6} sm={4}>
+              <Grid item xs={6} sm={4}>
                 <Typography variant="overline" fontWeight="bold" color="text.primary">Marketplace</Typography>
                 <FooterLink href="/browse">Browse Books</FooterLink>
                 <FooterLink href="/categoriies">Categories</FooterLink>
                 <FooterLink href="/sell-a-book">Sell Your Book</FooterLink>
               </Grid>
 
-              <Grid  xs={6} sm={4}>
+              <Grid item xs={6} sm={4}>
                 <Typography variant="overline" fontWeight="bold" color="text.primary">Company</Typography>
                 <FooterLink href="/about">About Us</FooterLink>
                 <FooterLink href="/contact">Contact</FooterLink>

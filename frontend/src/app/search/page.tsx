@@ -2,9 +2,10 @@
 
 import { useSearchParams } from 'next/navigation';
 import { useQuery } from '@tanstack/react-query';
+import { GridLegacy as Grid } from '@mui/material';
 
 import {
-  Box, Container, Typography, Grid, CircularProgress, Alert
+  Box, Container, Typography, CircularProgress, Alert
 } from '@mui/material';
 import BookCard from '@/components/BookCard';
  // We'll create a reusable SearchBar
@@ -78,7 +79,7 @@ export default function SearchPage() {
       {/* Results Grid */}
       <Grid container spacing={4}>
         {books?.map(book => (
-          <Grid  key={book._id} xs={12} sm={6} md={4} lg={3}>
+          <Grid item key={book._id} xs={12} sm={6} md={4} lg={3}>
             <BookCard book={book} />
           </Grid>
         ))}

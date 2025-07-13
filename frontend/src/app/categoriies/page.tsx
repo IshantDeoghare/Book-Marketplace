@@ -5,7 +5,6 @@ import {
   Box,
   Container,
   Typography,
-  Grid,
   Card,
   CardActionArea,
   CardContent,
@@ -23,6 +22,7 @@ import ChildCareIcon from "@mui/icons-material/ChildCare";
 import PublicIcon from "@mui/icons-material/Public";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import BookIcon from "@mui/icons-material/Book";
+import { GridLegacy as Grid } from '@mui/material';
 
 const CATEGORIES = [
   { name: "Fiction", icon: <AutoStoriesIcon /> },

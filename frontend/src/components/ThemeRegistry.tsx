@@ -258,7 +258,7 @@ const getDesignTokens = (mode: 'light' | 'dark') => ({
 
 export default function ThemeRegistry({ children }: { children: ReactNode }) {
   const { resolvedTheme } = useTheme();
-  const theme = createTheme(getDesignTokens(resolvedTheme === 'dark' ? 'light' : 'light'));
+  const theme = createTheme(getDesignTokens(resolvedTheme === 'light' ? 'dark' : 'light'));
 
   return (
     <MuiThemeProvider theme={theme}>

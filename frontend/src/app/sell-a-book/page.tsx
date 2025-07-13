@@ -9,7 +9,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  Container, Paper, Typography, Box, Grid, TextField, MenuItem,
+  Container, Paper, Typography, Box, TextField, MenuItem,
   FormControl, InputLabel, Select, FormHelperText, Button, Alert,
   CircularProgress, IconButton, useTheme, alpha
 } from '@mui/material';
@@ -17,6 +17,7 @@ import { CloudUpload, Delete } from '@mui/icons-material';
 import { bookSchema, BookFormData } from '@/schemas/bookSchema';
 import { useAuth } from '@/context/AuthContext';
 import apiClient from '@/lib/api';
+import { GridLegacy as Grid } from '@mui/material';
 
 const getUploadUrl = async (fileType: string, token: string) =>
   (await apiClient.post(
@@ -84,7 +85,7 @@ function DropZone({ onFiles, previews, remove, error }: {
       {previews.length > 0 && (
         <Grid container spacing={2} sx={{ mt: 3 }}>
           {previews.map((src, i) => (
-            <Grid xs={6} sm={4} md={3} key={src}>
+            <Grid item xs={6} sm={4} md={3} key={src}>
               <Box sx={{ position: 'relative', borderRadius: 2, overflow: 'hidden', '&:hover .overlay': { opacity: 1 } }}>
                 <Image src={src} alt="" fill sizes="200px" style={{ objectFit: 'cover' }} />
                 <Box className="overlay" sx={{
@@ -194,7 +195,7 @@ export default function SellABookPage() {
 
         <Box component="form" noValidate onSubmit={handleSubmit((d) => createMutation.mutate(d))}>
           <Grid container spacing={3}>
-            <Grid  xs={12} md={6}>
+            <Grid item xs={12} md={6}>
               <TextField
                 label="Book Title*"
                 fullWidth
@@ -203,7 +204,7 @@ export default function SellABookPage() {
                 helperText={errors.title?.message}
               />
             </Grid>
-            <Grid  xs={12} md={6}>
+            <Grid item xs={12} md={6}>
               <TextField
                 label="Author*"
                 fullWidth
@@ -212,7 +213,7 @@ export default function SellABookPage() {
                 helperText={errors.author?.message}
               />
             </Grid>
-            <Grid  xs={12} md={6}>
+            <Grid item xs={12} md={6}>
               <TextField
                 label="MRP (₹)*"
                 type="number"
@@ -222,7 +223,7 @@ export default function SellABookPage() {
                 helperText={errors.mrp?.message}
               />
             </Grid>
-            <Grid  xs={12} md={6}>
+            <Grid item xs={12} md={6}>
               <TextField
                 label="Your Price (₹)*"
                 type="number"
@@ -232,7 +233,7 @@ export default function SellABookPage() {
                 helperText={errors.askingPrice?.message}
               />
             </Grid>
-            <Grid  xs={12} md={6}>
+            <Grid item xs={12} md={6}>
               <TextField
                 label="Category*"
                 placeholder="e.g. Fiction, Science"
@@ -242,7 +243,7 @@ export default function SellABookPage() {
                 helperText={errors.category?.message}
               />
             </Grid>
-            <Grid  xs={12} md={6}>
+            <Grid item xs={12} md={6}>
               <TextField
                 label="Location*"
                 placeholder="City, State"
@@ -252,7 +253,7 @@ export default function SellABookPage() {
                 helperText={errors.location?.message}
               />
             </Grid>
-            <Grid  xs={12} md={6}>
+            <Grid item xs={12} md={6}>
               <FormControl fullWidth error={!!errors.condition}>
                 <InputLabel>Condition*</InputLabel>
                 <Controller
@@ -271,7 +272,7 @@ export default function SellABookPage() {
                 <FormHelperText>{errors.condition?.message}</FormHelperText>
               </FormControl>
             </Grid>
-            <Grid  xs={12} md={6}>
+            <Grid item xs={12} md={6}>
               <FormControl fullWidth error={!!errors.age}>
                 <InputLabel>Book Age*</InputLabel>
                 <Controller
@@ -290,7 +291,7 @@ export default function SellABookPage() {
                 <FormHelperText>{errors.age?.message}</FormHelperText>
               </FormControl>
             </Grid>
-            <Grid  xs={12}>
+            <Grid item xs={12}>
               <TextField
                 label="Description*"
                 multiline
@@ -301,7 +302,7 @@ export default function SellABookPage() {
                 helperText={errors.description?.message}
               />
             </Grid>
-            <Grid  xs={12}>
+            <Grid item xs={12}>
               <Controller
                 name="images"
                 control={control}
@@ -328,7 +329,7 @@ export default function SellABookPage() {
               />
             </Grid>
             {priceDiff > 0 && (
-              <Grid  xs={12}>
+              <Grid item xs={12}>
                 <Alert severity="success">
                   Great deal! Buyers save ₹{priceDiff.toLocaleString('en-IN')} (
                   {Math.round((priceDiff / Number(watch('mrp'))) * 100)}% off MRP)

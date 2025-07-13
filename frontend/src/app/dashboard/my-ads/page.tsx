@@ -3,7 +3,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 
 import { useAuth } from '@/context/AuthContext';
-import { Button, Box, Typography, Card, CardContent, CardActions, CardMedia, Grid, CircularProgress, Alert } from '@mui/material';
+import { Button, Box, Typography, Card, CardContent, CardActions, CardMedia, CircularProgress, Alert } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import apiClient from '@/lib/api';
 interface Book {
@@ -12,6 +12,7 @@ interface Book {
   askingPrice: number;
   imageUrls: string[];
 }
+import { GridLegacy as Grid } from '@mui/material';
 
 const fetchMyBooks = async (token: string): Promise<Book[]> => {
   const { data } = await apiClient.get('/books/mybooks', {
@@ -65,7 +66,7 @@ export default function MyAdsScreen() {
         // Parentheses wrap the entire Grid component
         <Grid container spacing={3}>
           {myBooks.map(book => (
-            <Grid  xs={12} key={book._id}>
+            <Grid item xs={12} key={book._id}>
               <Card sx={{ display: 'flex' }}>
                 <CardMedia
                   component="img"

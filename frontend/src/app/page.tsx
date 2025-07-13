@@ -5,7 +5,7 @@ import { useQuery } from '@tanstack/react-query';
 
 import Link from 'next/link';
 import {
-  Box, Container, Typography, Button, Grid, Chip, 
+  Box, Container, Typography, Button,Chip, 
   CircularProgress, Alert, useTheme, alpha
 } from '@mui/material';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
@@ -15,6 +15,8 @@ import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import BookCard from '@/components/BookCard';
 import apiClient from '@/lib/api';
+import { GridLegacy as Grid } from '@mui/material';
+
 interface Book { _id: string; title: string; author: string; askingPrice: number; imageUrls: string[]; }
 
 const fetchBooks = async () => {
@@ -128,7 +130,7 @@ export default function HomePage() {
         {books && (
           <Grid container spacing={4}>
             {books.map(book => (
-              <Grid key={book._id} xs={12} sm={6} md={4} lg={3}>
+              <Grid item key={book._id} xs={12} sm={6} md={4} lg={3}>
                 <BookCard book={book} />
               </Grid>
             ))}

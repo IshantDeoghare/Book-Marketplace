@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { GridLegacy as Grid } from '@mui/material';
 
 import {
   Box,
   Container,
   Typography,
-  Grid,
   Chip,
   CircularProgress,
   Alert,
@@ -150,7 +150,7 @@ export default function BrowsePage() {
             )}
             <Grid container spacing={4}>
                 {books?.map((book: Book) => (
-                  <Grid  key={book._id} xs={12} sm={6} md={4} lg={3}>
+                  <Grid item key={book._id} xs={12} sm={6} md={4} lg={3}>
                     <BookCard book={book} />
                   </Grid>
                 ))}

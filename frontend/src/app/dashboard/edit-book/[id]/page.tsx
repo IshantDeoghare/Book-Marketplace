@@ -7,6 +7,7 @@ import { bookSchema, BookFormData } from '@/schemas/bookSchema';
 import { useAuth } from '@/context/AuthContext';
 import { useRouter, useParams } from 'next/navigation';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { GridLegacy as Grid } from '@mui/material';
 
 import {
   Container,
@@ -15,7 +16,7 @@ import {
   Paper,
   TextField,
   Button,
-  Grid,
+  
   Select,
   MenuItem,
   FormControl,
@@ -326,7 +327,7 @@ export default function EditBookPage() {
                     </Typography>
                     
                     <Grid container spacing={3}>
-                      <Grid  xs={12} md={6}>
+                      <Grid item xs={12} md={6}>
                         <TextField
                           {...register('title')}
                           label="Book Title"
@@ -360,7 +361,7 @@ export default function EditBookPage() {
                         />
                       </Grid>
 
-                      <Grid  xs={12} md={6}>
+                      <Grid item xs={12} md={6}>
                         <TextField
                           {...register('author')}
                           label="Author"
@@ -387,7 +388,7 @@ export default function EditBookPage() {
                         />
                       </Grid>
 
-                      <Grid  xs={12} md={6}>
+                      <Grid item xs={12} md={6}>
                         <TextField
                           {...register('category')}
                           label="Category"
@@ -422,7 +423,7 @@ export default function EditBookPage() {
                         />
                       </Grid>
 
-                      <Grid  xs={12} md={6}>
+                      <Grid item xs={12} md={6}>
                         <TextField
                           {...register('location')}
                           label="Location"
@@ -479,7 +480,7 @@ export default function EditBookPage() {
                     </Typography>
                     
                     <Grid container spacing={3}>
-                      <Grid  xs={12} md={6}>
+                      <Grid item xs={12} md={6}>
                         <TextField
                           {...register('mrp')}
                           label="Original MRP"
@@ -514,7 +515,7 @@ export default function EditBookPage() {
                         />
                       </Grid>
 
-                      <Grid  xs={12} md={6}>
+                      <Grid item xs={12} md={6}>
                         <TextField
                           {...register('askingPrice')}
                           label="Your Asking Price"
@@ -551,7 +552,7 @@ export default function EditBookPage() {
 
                       {/* Price Calculator */}
                       {priceDiff > 0 && (
-                        <Grid  xs={12}>
+                        <Grid item xs={12}>
                           <Fade in={true}>
                             <Card
                               sx={{
@@ -601,7 +602,7 @@ export default function EditBookPage() {
                     </Typography>
                     
                     <Grid container spacing={3}>
-                      <Grid  xs={12} md={6}>
+                      <Grid item xs={12} md={6}>
                         <FormControl 
                           fullWidth 
                           required 
@@ -660,7 +661,7 @@ export default function EditBookPage() {
                         </FormControl>
                       </Grid>
 
-                      <Grid  xs={12} md={6}>
+                      <Grid item xs={12} md={6}>
                         <FormControl 
                           fullWidth 
                           required 

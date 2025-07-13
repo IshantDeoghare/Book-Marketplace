@@ -2,13 +2,13 @@
 //E:\pro-book-marketplace\frontend\src\app\categoriies\[category]\page.tsx
 import { useParams } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
+import { GridLegacy as Grid } from '@mui/material';
 
 import Link from "next/link";
 import {
   Box,
   Container,
   Typography,
-  Grid,
   
   Button,
   CircularProgress,
@@ -91,7 +91,7 @@ export default function CategoryBooksPage() {
         {books && books.length > 0 && (
           <Grid container spacing={4}>
             {books.map((book: Book) => (
-              <Grid  key={book._id} xs={12} sm={6} md={4} lg={3}>
+              <Grid item key={book._id} xs={12} sm={6} md={4} lg={3}>
                 <BookCard book={book} />
               </Grid>
             ))}

@@ -10,7 +10,6 @@ import {
   Paper,
   Avatar,
   Button,
-  Grid,
   Chip,
   Divider,
   CircularProgress,
@@ -25,6 +24,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import BookIcon from '@mui/icons-material/Book';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { GridLegacy as Grid } from '@mui/material';
 
 export default function ProfilePage() {
   const { user, signOut, loading } = useAuth();
@@ -141,7 +141,7 @@ export default function ProfilePage() {
           <Divider sx={{ my: 3 }} />
 
           <Grid container spacing={2} justifyContent="center">
-            <Grid  xs={12} sm={6}>
+            <Grid item xs={12} sm={6}>
               <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1 }}>
                 <CalendarTodayIcon color="action" />
                 <Typography variant="body2" color="text.secondary">
@@ -151,7 +151,7 @@ export default function ProfilePage() {
                 </Typography>
               </Box>
             </Grid>
-            <Grid  xs={12} sm={6}>
+            <Grid item xs={12} sm={6}>
               <Box sx={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 1 }}>
                 <BookIcon color="action" />
                 <Typography variant="body2" color="text.secondary">

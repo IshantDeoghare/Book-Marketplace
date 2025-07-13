@@ -4,8 +4,7 @@ import { useQuery, useMutation } from '@tanstack/react-query'
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
 import { 
-  Container, 
-  Grid, 
+  Container,  
   Typography, 
   Box, 
   CircularProgress, 
@@ -26,6 +25,7 @@ import {
   Badge,
   Stack
 } from '@mui/material';
+import { GridLegacy as Grid } from '@mui/material';
 import { 
   FmdGoodOutlined as LocationIcon,
   MenuBook as BookIcon,
@@ -266,7 +266,7 @@ export default function BookDetailPage() {
 
           <Grid container spacing={4}>
             {/* Main Content */}
-            <Grid  xs={12} lg={8}>
+            <Grid item xs={12} lg={8}>
               {/* Image Gallery - Fixed Display Issues */}
               <Paper 
                 elevation={0}
@@ -459,7 +459,7 @@ export default function BookDetailPage() {
                     { icon: <CategoryIcon />, label: 'Category', value: book.category },
                     { icon: <LocationIcon />, label: 'Location', value: book.location }
                   ].map((item, index) => (
-                    <Grid  xs={12} sm={6} key={index}>
+                    <Grid item xs={12} sm={6} key={index}>
                       <Box 
                         sx={{ 
                           display: 'flex', 

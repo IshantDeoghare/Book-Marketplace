@@ -18,6 +18,15 @@ import {
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import BookCard from "@/components/BookCard";
 import apiClient from '@/lib/api';
+
+interface Book {
+  _id: string;
+  title: string;
+  author: string;
+  askingPrice: number;
+  imageUrls: string[];
+  category: string;
+}
 export default function CategoryBooksPage() {
   
   const { category } = useParams<{ category: string }>();
@@ -81,7 +90,7 @@ export default function CategoryBooksPage() {
         )}
         {books && books.length > 0 && (
           <Grid container spacing={4}>
-            {books.map((book: any) => (
+            {books.map((book: Book) => (
               <Grid item key={book._id} xs={12} sm={6} md={4} lg={3}>
                 <BookCard book={book} />
               </Grid>

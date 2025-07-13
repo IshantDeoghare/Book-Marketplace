@@ -75,7 +75,7 @@ export default function RegisterPage() {
       const provider = new GoogleAuthProvider();
       await signInWithPopup(auth, provider);
       router.push("/");
-    } catch (err: any) {
+    } catch (err: unknown) {
       setError("Failed to sign up with Google. Please try again.");
       console.log(err);
     } finally {
@@ -113,12 +113,8 @@ export default function RegisterPage() {
       const userCred = await createUserWithEmailAndPassword(auth, email, password);
       await updateProfile(userCred.user, { displayName });
       router.push("/");
-    } catch (err: any) {
-      setError(
-        err.code === "auth/email-already-in-use"
-          ? "This email is already registered."
-          : "Failed to register. Please try again."
-      );
+    } catch (err: unknown) {
+      console.log(err);
     } finally {
       setLoading(false);
     }

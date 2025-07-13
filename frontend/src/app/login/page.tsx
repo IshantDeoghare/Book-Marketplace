@@ -85,7 +85,7 @@ export default function LoginPage() {
     try {
       await signInWithEmailAndPassword(auth, email, password);
       router.push('/');
-    } catch (err: any) {
+    } catch (err : unknown) {
       setError("Invalid email or password. Please check your credentials and try again.");
       console.log(err);
     } finally {

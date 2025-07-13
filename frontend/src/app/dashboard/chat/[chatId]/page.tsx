@@ -16,7 +16,6 @@ import {
   Alert,
   Toolbar,
   Avatar,
-  useTheme,
   alpha,
   Fade,
   Zoom,

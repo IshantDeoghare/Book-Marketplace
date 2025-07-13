@@ -1,7 +1,7 @@
 "use client";
 
-import { useQuery, useMutation } from '@tanstack/react-query';
-
+import { useQuery, useMutation } from '@tanstack/react-query'
+import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
 import { 
   Container, 
@@ -111,8 +111,15 @@ export default function BookDetailPage() {
       return data;
     },
     onSuccess: (data) => router.push(`/dashboard/chat/${data._id}`),
-    onError: (error: any) => 
-      alert(`Could not start chat: ${error.response?.data?.message || error.message}`),
+    onError: (error: unknown) => { // <-- FIX: Type as unknown
+        let errorMessage = 'An unexpected error occurred.';
+        if (axios.isAxiosError(error)) { // Use type guard
+            errorMessage = error.response?.data?.message || error.message;
+        } else if (error instanceof Error) {
+            errorMessage = error.message;
+        }
+        alert(`Could not start chat: ${errorMessage}`);
+    },
   });
 
   const handleImageNavigation = (direction: 'prev' | 'next') => {

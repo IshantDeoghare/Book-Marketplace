@@ -114,7 +114,7 @@ export default function SellABookPage() {
   const theme = useTheme();
 
   const {
-    register, handleSubmit, control, watch, setValue, formState: { errors }
+     handleSubmit, control, watch, setValue, formState: { errors }
   } = useForm<BookFormData>({
     resolver: yupResolver(bookSchema),
     defaultValues: { condition: 'Good', age: '1-3 years', images: [] }, // Set images default to empty array
@@ -134,7 +134,7 @@ export default function SellABookPage() {
           urls.push(`https://${process.env.NEXT_PUBLIC_S3_BUCKET_NAME}.s3.${process.env.NEXT_PUBLIC_AWS_REGION}.amazonaws.com/${key}`);
         }
       }
-      const { images, ...data } = form;
+      const { ...data } = form;
       return createListing({ ...data, imageUrls: urls }, idToken);
     },
     onSuccess: (book) => router.push(`/books/${book._id}`),
@@ -170,7 +170,7 @@ export default function SellABookPage() {
               <Controller
                 name="images"
                 control={control}
-                render={({ field }) => (
+                render={() => (
                   <DropZone
                     onFilesChange={(files) => setValue('images', files, { shouldValidate: true })}
                     error={errors.images?.message}

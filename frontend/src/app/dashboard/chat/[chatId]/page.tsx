@@ -221,7 +221,7 @@ export default function ChatScreen() {
   // Socket.IO connection and event handlers
   useEffect(() => {
     if (!idToken || !user || !mounted) return;
-    const socket = io('http://localhost:5001', { transports: ['websocket'], upgrade: true });
+    const socket = io('https://pro-book-marketplace-api.onrender.com', { transports: ['websocket'], upgrade: true });
     socketRef.current = socket;
     socket.emit('join chat', chatId);
     socket.on('connect', () => setIsOnline(true));
